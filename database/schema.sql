@@ -66,37 +66,7 @@ CREATE TABLE IF NOT EXISTS message_queue (
     INDEX idx_created (created_at)
 ) ENGINE=InnoDB COMMENT='Message delivery queue for offline users';
 
--- Note: Stored procedures and events are not created here
--- as they require special handling in Node.js.
--- The cleanup is handled by the application code in server.js
 
--- Sample queries for testing
-
--- Insert a test message
--- INSERT INTO messages (sender_key, recipient_key, encrypted_data, garbage_noise, timestamp)
--- VALUES ('1234567890123456', '6543210987654321', 'encrypted_test_data', 'random_noise', NOW());
-
--- Retrieve messages for a device
--- SELECT * FROM messages 
--- WHERE sender_key = '1234567890123456' OR recipient_key = '1234567890123456'
--- ORDER BY timestamp DESC;
-
--- Get active nodes count
--- SELECT COUNT(DISTINCT device_key) as active_nodes 
--- FROM device_keys 
--- WHERE last_seen > DATE_SUB(NOW(), INTERVAL 5 MINUTE);
-
--- Performance indexes summary:
--- - idx_recipient: Fast message retrieval by recipient
--- - idx_sender: Fast message retrieval by sender  
--- - idx_timestamp: Chronological message ordering
--- - idx_device_key: Fast device lookup
--- - idx_last_seen: Active node tracking
--- - idx_session_token: Quick session validation
-
--- Security notes:
--- 1. All message data is encrypted with AES-256-GCM before storage
--- 2. Device keys are the only identifiers (no personal information)
 -- 3. Garbage noise makes traffic analysis harder
 -- 4. FIFO cleanup ensures old data is automatically purged
 -- 5. IP addresses are optional and can be omitted for full anonymity
