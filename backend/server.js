@@ -11,10 +11,10 @@ app.use(cors({ origin: "*"}));
 app.use(express.json());
 
 const pool = mysql.createPool({
-  host: 'mysql-raja-rajayadav-mysql.a.aivencloud.com',
-  port: 26398,
+  host: 'ERROR',
+  port: ERROR,
   user: 'avnadmin',
-  password: 'AVNS_Gj5limQW85MHLlQSG25',
+  password: 'ERROR',
   database: 'defaultdb',
   ssl: { rejectUnauthorized: false }
 });
