@@ -7,7 +7,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
-/* ✅ AIVEN DIRECT CONFIG */
+
 const pool = mysql.createPool({
   host: '',
   port: 26398,
