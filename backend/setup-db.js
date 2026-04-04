@@ -22,7 +22,7 @@ const pool = mysql.createPool({
   }
 });
 
-/* 🔥 DATABASE SETUP ROUTE */
+
 app.get('/setup', async (req, res) => {
   try {
     await pool.query(`
